@@ -3,6 +3,7 @@ package co.edgesecure.app;
 import android.app.Application;
 import android.content.Context;
 import android.webkit.WebView;
+import com.bugsnag.android.Bugsnag;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -60,7 +61,7 @@ public class MainApplication extends Application implements ReactApplication {
     WebView.setWebContentsDebuggingEnabled(true);
 
     // Background task:
-    MessagesWorker.ensureScheduled(context);
+    // MessagesWorker.ensureScheduled(context);
     // MessagesWorker.testRun(context);
   }
 
