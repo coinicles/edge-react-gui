@@ -11,7 +11,7 @@
 #import <sys/errno.h>
 #import <UserNotifications/UserNotifications.h>
 
-@interface AppDelegate () <FIRMessagingDelegate, UNUserNotificationCenterDelegate>
+@interface AppDelegate () <UNUserNotificationCenterDelegate>
 
 @end
 
@@ -23,13 +23,13 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 static void InitializeFlipper(UIApplication *application) {
-  FlipperClient *client = [FlipperClient sharedClient];
-  SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
-  [client addPlugin:[[FlipperKitLayoutPlugin alloc] initWithRootNode:application withDescriptorMapper:layoutDescriptorMapper]];
-  [client addPlugin:[[FKUserDefaultsPlugin alloc] initWithSuiteName:nil]];
-  [client addPlugin:[FlipperKitReactPlugin new]];
-  [client addPlugin:[[FlipperKitNetworkPlugin alloc] initWithNetworkAdapter:[SKIOSNetworkAdapter new]]];
-  [client start];
+//  FlipperClient *client = [FlipperClient sharedClient];
+//  SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
+//  [client addPlugin:[[FlipperKitLayoutPlugin alloc] initWithRootNode:application withDescriptorMapper:layoutDescriptorMapper]];
+//  [client addPlugin:[[FKUserDefaultsPlugin alloc] initWithSuiteName:nil]];
+//  [client addPlugin:[FlipperKitReactPlugin new]];
+//  [client addPlugin:[[FlipperKitNetworkPlugin alloc] initWithNetworkAdapter:[SKIOSNetworkAdapter new]]];
+//  [client start];
 }
 #endif
 
@@ -56,8 +56,12 @@ static void InitializeFlipper(UIApplication *application) {
 {
   [Bugsnag start];
 
-  [FIRApp configure];
-  [FIRMessaging messaging].delegate = self;
+#if DEBUG
+  InitializeFlipper(application);
+#endif
+
+  // [FIRApp configure];
+  // [FIRMessaging messaging].delegate = self;
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
@@ -86,16 +90,6 @@ static void InitializeFlipper(UIApplication *application) {
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;
-}
-
-- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
-    NSLog(@"FCM registration token: %@", fcmToken);
-    // Notify about received token.
-    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:
-     @"FCMToken" object:nil userInfo:dataDict];
-    // TODO: If necessary send token to application server.
-    // Note: This callback is fired at each app startup and whenever a new token is generated.
 }
 
 // With "FirebaseAppDelegateProxyEnabled": NO

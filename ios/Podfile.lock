@@ -19,28 +19,6 @@ PODS:
     - React-Core (= 0.63.0)
     - React-jsi (= 0.63.0)
     - ReactCommon/turbomodule/core (= 0.63.0)
-  - Firebase/Core (5.3.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.0.1)
-  - Firebase/CoreOnly (5.3.0):
-    - FirebaseCore (= 5.0.4)
-  - Firebase/Messaging (5.3.0):
-    - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.0.2)
-  - FirebaseAnalytics (5.0.1):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (5.0.4):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseInstanceID (3.1.1):
-    - FirebaseCore (~> 5.0)
-  - FirebaseMessaging (3.0.2):
-    - FirebaseCore (~> 5.0)
-    - FirebaseInstanceID (~> 3.0)
-    - GoogleToolboxForMac/Logger (~> 2.1)
-    - Protobuf (~> 3.1)
   - Flipper (0.41.5):
     - Flipper-Folly (~> 2.2)
     - Flipper-RSocket (~> 1.1)
@@ -97,20 +75,9 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - GoogleToolboxForMac/Defines (2.2.2)
-  - GoogleToolboxForMac/Logger (2.2.2):
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
-    - GoogleToolboxForMac/Defines (= 2.2.2)
-  - nanopb (0.3.9011):
-    - nanopb/decode (= 0.3.9011)
-    - nanopb/encode (= 0.3.9011)
-  - nanopb/decode (0.3.9011)
-  - nanopb/encode (0.3.9011)
   - OpenSSL-Universal (1.0.2.19):
     - OpenSSL-Universal/Static (= 1.0.2.19)
   - OpenSSL-Universal/Static (1.0.2.19)
-  - Protobuf (3.13.0)
   - RCTRequired (0.63.0)
   - RCTTypeSafety (0.63.0):
     - FBLazyVector (= 0.63.0)
@@ -377,8 +344,6 @@ PODS:
     - React
   - RNLocalize (1.4.0):
     - React
-  - RNOpenAppSettings (1.0.0):
-    - React
   - RNShare (3.8.3):
     - React
   - RNSound (0.11.0):
@@ -405,8 +370,6 @@ DEPENDENCIES:
   - edge-login-ui-rn (from `../node_modules/edge-login-ui-rn`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
-  - Firebase/Core (~> 5.3.0)
-  - Firebase/Messaging
   - Flipper (~> 0.41.1)
   - Flipper-DoubleConversion (= 1.1.7)
   - Flipper-Folly (~> 2.2)
@@ -467,7 +430,6 @@ DEPENDENCIES:
   - RNFastCrypto (from `../node_modules/react-native-fast-crypto/ios`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNLocalize (from `../node_modules/react-native-localize`)
-  - RNOpenAppSettings (from `../node_modules/react-native-app-settings`)
   - RNShare (from `../node_modules/react-native-share`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNStoreReview (from `../node_modules/react-native-store-review/ios`)
@@ -481,11 +443,6 @@ SPEC REPOS:
   trunk:
     - boost-for-react-native
     - CocoaLibEvent
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseInstanceID
-    - FirebaseMessaging
     - Flipper
     - Flipper-DoubleConversion
     - Flipper-Folly
@@ -493,10 +450,7 @@ SPEC REPOS:
     - Flipper-PeerTalk
     - Flipper-RSocket
     - FlipperKit
-    - GoogleToolboxForMac
-    - nanopb
     - OpenSSL-Universal
-    - Protobuf
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -592,8 +546,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
-  RNOpenAppSettings:
-    :path: "../node_modules/react-native-app-settings"
   RNShare:
     :path: "../node_modules/react-native-share"
   RNSound:
@@ -618,11 +570,6 @@ SPEC CHECKSUMS:
   edge-login-ui-rn: 710ef563433b6978aa2a542746e8dfd1e3e07591
   FBLazyVector: 6f1045c66f816849b33c4ff28930b611e89059a0
   FBReactNativeSpec: e856d5103d749483f86f53afafd8df4ed8a776bd
-  Firebase: 68afeeb05461db02d7c9e3215cda28068670f4aa
-  FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
-  FirebaseCore: 62f1b792a49bb9e8b4073f24606d2c93ffc352f0
-  FirebaseInstanceID: f3f0657372592ecdfdfe2cac604a5a75758376a6
-  FirebaseMessaging: 6894b8fe0a0cf26c3b13dad729f1131654ae0bdb
   Flipper: 33585e2d9810fe5528346be33bcf71b37bb7ae13
   Flipper-DoubleConversion: 38631e41ef4f9b12861c67d17cb5518d06badc41
   Flipper-Folly: c12092ea368353b58e992843a990a3225d4533c3
@@ -632,10 +579,7 @@ SPEC CHECKSUMS:
   FlipperKit: bc68102cd4952a258a23c9c1b316c7bec1fecf83
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
-  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
-  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   OpenSSL-Universal: 8b48cc0d10c1b2923617dfe5c178aa9ed2689355
-  Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   RCTRequired: e46bb77db03887b3e200d34b08515c804669db99
   RCTTypeSafety: 270fed6675c42f80fb87b47d626ef3cede1505e6
   React: e008906ff1328f9bccb345ff4f7826397ad223fc
@@ -673,7 +617,6 @@ SPEC CHECKSUMS:
   RNFastCrypto: f63e4d7c452dd250f3d56d0bb8e0712fb3fc9567
   RNFS: c9bbde46b0d59619f8e7b735991c60e0f73d22c1
   RNLocalize: b6df30cc25ae736d37874f9bce13351db2f56796
-  RNOpenAppSettings: 1169b90a275e9e18c5973e1608949f97d426e7f3
   RNShare: 883e13860ebb923bf9f7312187c3d744f546e3bb
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNStoreReview: 62d6afd7c37db711a594bbffca6b0ea3a812b7a8
@@ -682,6 +625,6 @@ SPEC CHECKSUMS:
   Yoga: 7d2edc5b410474191962e6dee88ee67f9b328b6b
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 442208391d5e0a010fbd92b7dc9ba77c8014c498
+PODFILE CHECKSUM: 68877d18b199959276325d4c6448ef9bbabe31b9
 
 COCOAPODS: 1.9.3
