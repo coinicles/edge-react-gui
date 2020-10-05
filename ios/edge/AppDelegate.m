@@ -10,7 +10,6 @@
 
 #import "RCTSplashScreen.h"
 #import <Bugsnag/Bugsnag.h>
-#import <Firebase.h>
 #import <Foundation/Foundation.h>
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
@@ -91,7 +90,6 @@
 // With "FirebaseAppDelegateProxyEnabled": NO
 - (void)application:(UIApplication *)application
     didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    [FIRMessaging messaging].APNSToken = deviceToken;
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge
